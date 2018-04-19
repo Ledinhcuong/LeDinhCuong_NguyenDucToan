@@ -1,0 +1,113 @@
+
+/*----------------------------------- Header -------------------------------*/
+
+
+/*---------------- navbar ------------------------*/
+
+.navbar-default {
+	background: rgba(0,0,0,0.8);
+	border-radius: 0px;
+	border: none;
+	margin-bottom: 0px;
+
+}
+
+.logo {
+	color: #ffffff;
+	font-size: 25px;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
+	font-size: 16px;
+}
+
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #008EFF;
+}
+
+
+
+
+/*------------------------------------ content ----------------------------------------*/
+
+/*---------- advertisement ----------*/
+.advertisement {
+	margin-top: 30px;
+}
+
+.all-ad {
+	padding: 0px 0px;
+}
+
+/*------- filter ---------*/
+.filter {
+	padding: 5px 0px;
+	
+}
+
+.all-filter {
+	background: #F5F5F5;
+	padding: 15px 0;
+}
+
+.title-filter {
+	text-align: center;
+	font-weight: bold;
+	color: #009688;
+}
+
+.filters {
+	text-align: center;
+	
+}
+
+.filters a {
+	color: #008EFF;
+}
+
+
+/*---------- product -------------*/
+.product {
+	margin: 20px 0px;
+	padding: 10px 0px;
+}
+
+.image-product {
+	padding: 30px;
+}
+
+.image-product:hover {
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+.format-product {
+	border: 1px solid #F7F7F7;
+}
+
+.name-product {
+	padding: 5px 0px;
+	margin: 5px 0px;
+} 
+.name-product a{
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+.name-product a:hover {
+	color: #FE7E10;
+	text-decoration: none;
+}
+
+.price {
+	padding-left: 10px;
+	font-size: 15px;
+	margin-bottom: 10px;
+	color: #B00E23;
+	font-weight: bold;
+}
+  /*----------- footer --------*/
+  
+  
