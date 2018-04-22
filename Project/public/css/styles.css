@@ -11,6 +11,7 @@
 	margin-bottom: 0px;
 
 
+
 }
 
 .logo {
@@ -39,6 +40,50 @@
 		font-size: 20px;
 	}
 }
+
+.menu-cart {
+	position: absolute;
+	right: 0px;
+	background: #F0F0F0;
+	padding: 40px;
+	top: 50px;
+	display: none;
+	z-index: 1;
+
+}
+
+.menu-cart div {
+	margin-bottom: 15px;
+}
+
+.menu-navbar {
+	position: absolute;;
+	z-index: 2;
+	display: none;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 35px 50px 35px 10px;
+
+
+}
+
+.menu-navbar ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.menu-navbar li {
+	color: #fff;
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+
+.menu-navbar li>a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+
 
 
 
@@ -142,14 +187,15 @@
 	color: #008EFF;
 	font-weight: bold;
 	margin-right: 5px;
-	border: 1px solid #000;
+	border: 1px solid rgba(0,0,0,0.8);
 	text-align: center;
 	border-radius: 12px;
 }
 
 .background-p:hover {
-	background: #000;
+	background: rgba(0,0,0,0.8);
 	color: #fff;
+	border: 1px solid #fff;
 }
 .all-page a{
 	text-decoration: none;
@@ -161,6 +207,7 @@
 		margin-right: 3px;
 		border-radius: 0px;
 		padding: 5px 10px;
+		
 	}
 }
 
