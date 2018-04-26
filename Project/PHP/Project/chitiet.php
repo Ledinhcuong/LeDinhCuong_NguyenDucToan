@@ -1,3 +1,12 @@
+<?php
+$id = $_GET['id'];
+require "public/app/db.php";
+require "public/app/config.php";
+$db = new db();
+$sanPham = $db->chiTietSanPham($id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +143,7 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="#"> 
+					<a class="navbar-brand" href="index.php"> 
 						<span class="logo"><i class="fa fa-apple" aria-hidden="true"></i>  Zenstore</span>
 
 					</a>
@@ -156,8 +165,8 @@
 						</form>
 
 						
-						<li><a href="index.html"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
-						<li><a href="#"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
+						<li><a href="index.php"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
+						<li><a href="tablet.php"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
 						<li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>  Laptop</a></li>
 						<li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>  Accessories</a></li>
 						<li><a href="#" class="cart" style="padding-bottom: 5px; padding-top: 10px;"><img src="public/images/avatar.png" alt="" class="img-responsive" width="30px" height="30px"></a></li>
@@ -170,7 +179,7 @@
 			</div>
 		</nav>
 		<div class="menu-cart">
-			<div><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Quản lý giỏ hàng</a></div>
+			<div><a href="mycart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Quản lý giỏ hàng</a></div>
 			<div> <a href="#"><i class="fa fa-history" aria-hidden="true"></i>   Lịch sử mua hàng</a></div>
 			<div><a href="#"><i class="fa fa-globe" aria-hidden="true"></i>   Ngôn ngữ</a></div>
 			<div><a href="#"><i class="fa fa-bug" aria-hidden="true"></i>   Báo cáo sự cố</a></div>
@@ -199,19 +208,19 @@
 	<div class="content">
 		<div class="container detail">
 			<div class="name-product">
-				Điện thoại iPhone X 256GB
+				Điện thoại <?php echo $sanPham['TenSP']?>
 
 			</div>
 		<div class="row product-detail">
 			<div class="col-md-6 col-sm-6 col-sm-12">
 				<div class="image-pr">
 					<div>
-						<img src="public/images/iphonex.jpg" alt="iphonex" class="img-responsive">
+						<img src="public/images/<?php echo $sanPham['Anh']?>" alt="<?php echo $sanPham['TenSP']?>" class="img-responsive">
 					</div>
 
 					<div class="buy-product">
 						<div class="price">
-							35.000.000
+							<?php echo $sanPham['Gia']?> đ
 						</div>
 						<div class="row">
 							
@@ -242,16 +251,16 @@
 							Thông số kỹ thuật
 						</div>
 						<ul>
-							<li>Màn hình: </li>
-							<li>Hệ điều hành: </li>
-							<li>Camera sau: </li>
-							<li>Camera trước: </li>
-							<li>Cpu: </li>
-							<li>Ram: </li>
-							<li>Bộ nhớ trong: </li>
-							<li>Chất liệu: </li>
-							<li>Trọng lượng: </li>
-							<li>Dung lượng pin: </li>
+							<li>Màn hình: <?php echo $sanPham['ManHinh'] ?> </li>
+							<li>Hệ điều hành: <?php echo $sanPham['HeDieuHanh']?> </li>
+							<li>Camera sau: <?php echo $sanPham['CamSau']?> </li>
+							<li>Camera trước: <?php echo $sanPham['CamTruoc']?> </li>
+							<li>Cpu: <?php echo $sanPham['CPU'] ?> </li>
+							<li>Ram: <?php echo $sanPham['Ram'] ?> </li>
+							<li>Bộ nhớ trong: <?php echo $sanPham['BoNho'] ?> </li>
+							<li>Chất liệu: <?php echo $sanPham['BoNho']?> </li>
+							<li>Trọng lượng: <?php echo $sanPham['TrongLuong']?> </li>
+							<li>Dung lượng pin: <?php echo $sanPham['DungLuongPin']?> </li>
 						</ul>	
 				</div>
 
@@ -263,18 +272,7 @@
 				<button style="border: none; background: none;">Đặc điểm nổi bật của sản phẩm</button>
 			</div>
 			<div class="content-intro" style="display: none;">
-				iPhone X được Apple ra mắt ngày 12/9 vừa rồi đánh dấu chặng đường 10 năm lần đầu tiên iPhone ra đời. Sau một thời gian, giá iPhone X cũng được công bố. iPhone X mang trên mình thiết kế hoàn toàn mới với màn hình Super Retina viền cực mỏng và trang bị nhiều công nghệ hiện đại như nhận diện khuôn mặt Face ID, sạc pin nhanh và sạc không dây cùng khả năng chống nước bụi cao cấp.
-				Màn hình iPhone X được phủ kín gần như toàn bộ ở mặt trước và vẫn chừa lại một phần màn hình cho loa, camera và các cảm biến ở phía trên.
-				Còn mặt sau vẫn là chất liệu kính nhé, tiện thể thì iPhone X cũng trang bị chuẩn chống nước IP67.
-				Thay vì sử dụng công nghệ TrueTone HD thì màn hình OLED 5.8 inch của iPhone X được trang bị công nghệ Super Retina cho mật độ điểm ảnh lên tới 458 dpi. 
-				Với màn hình tràn viền như này mà không có nút Home thì người dùng sẽ phải vuốt từ dưới lên để mở trình quản lý đa nhiệm.
-				Đi kèm với màn hình chất lượng đó thì chúng ta sẽ có Chip A11 Bionic. Một cái tên gì đó nghe có vẻ rất là "Chất". Và chip này có 6 lõi, cho hiệu suất hoạt động tốt hơn 25% so với A10.
-				Vẫn là vấn đề cũ, không có Touch ID thì mở khóa bằng... mặt. Giờ đây chúng ta đã có Face ID để làm điều đó. Với công nghệ vô cùng đặc biệt này, bạn có thể mở khóa bằng khuôn mặt của mình dù là ngoài trời nắng hay trong bóng đêm, kể cả chưa cạo râu hay mới cắt tóc,... Face ID chấp hết.
-				Theo Apple, Face ID có độ bảo mật còn cao hơn cả Touch ID, đạt tỷ lệ nhận diện sai chỉ là 1 trên 1.000.000 (1 triệu), trong khi Touch ID là 1 trên 50.000.
-				Một tính năng mới đi kèm với Face ID là Animoji vô cùng mới mẻ khi bạn có thể tạo được những emotion chuyển động theo khuôn mặt của bạn một cách rất ngộ nghĩnh và đáng yêu
-				Không chỉ camera trước, mà camera sau của iPhone X cũng nhận được những nâng cấp mạnh mẽ với hệ thống camera kép 12MP kèm theo ống kính góc thường và ống kính tele. Đặc biệt, cả hai camera của iPhone X đều được trang bị công nghệ chống rung quang học, đi cùng với đó là hệ thống đèn Flash LED mới.
-				Tương tự như bộ đôi iPhone 8 và iPhone 8 Plus thì iPhone X cũng được trang bị tính năng sạc không dây. Chúng ta sẽ được thấy một chiếc sạc không dây tới từ Apple có tên là AirPower
-				Với thiết kế cực sang trọng cùng những tính năng hiện đại, iPhone X - phiên bản iPhone kỷ niệm 10 năm ngày ra mắt iPhone nhắm đến phân khúc người dùng cực kỳ cao cấp, việc được sỡ hữu siêu phẩm iPhone X sẽ là niềm tự hào với cộng đồng iFan.
+				<?php echo $sanPham['DacDiem']?>
 			</div>
 
 		</div>

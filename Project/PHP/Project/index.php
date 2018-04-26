@@ -2,7 +2,19 @@
 require "public/app/db.php";
 require "public/app/config.php";
 $db = new db();
-$sanPham = $db->tatCaSanPham(1);
+if (isset($_GET['maLoai']))
+{
+	$maLoai = $_GET['maLoai'];
+	
+
+}
+else
+{
+	$maLoai = 1;
+	
+}
+
+$duLieu = $db->layDuLieuTrang($maLoai);
 
 ?>
 
@@ -34,7 +46,7 @@ $sanPham = $db->tatCaSanPham(1);
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="#"> 
+					<a class="navbar-brand" href="index.php"> 
 						<span class="logo"><i class="fa fa-apple" aria-hidden="true"></i>  Zenstore</span>
 
 					</a>
@@ -46,7 +58,7 @@ $sanPham = $db->tatCaSanPham(1);
 					
 					<ul class="nav navbar-nav navbar-right">
 
-						<form action="search.html" class="navbar-form navbar-left" role="search" >
+						<form action="search.php" class="navbar-form navbar-left" role="search" >
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Bạn tìm gì ...">
 
@@ -56,9 +68,9 @@ $sanPham = $db->tatCaSanPham(1);
 						</form>
 
 						
-						<li><a href="index.php"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
-						<li><a href="tablet.php"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
-						<li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>  Laptop</a></li>
+						<li><a href="index.php?maLoai=1"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
+						<li><a href="index.php?maLoai=2"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
+						<li><a href="index.php?maLoai=3"><i class="fa fa-laptop" aria-hidden="true"></i>  Laptop</a></li>
 						<li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>  Accessories</a></li>
 						<li><a href="#" class="cart" style="padding-bottom: 5px; padding-top: 10px;"><img src="public/images/avatar.png" alt="" class="img-responsive" width="30px" height="30px"></a></li>
 						
@@ -83,8 +95,8 @@ $sanPham = $db->tatCaSanPham(1);
 		</div>
 		<div class="menu-navbar">
 			<ul>
-				<li><a href="index.html"><i class="fa fa-mobile" aria-hidden="true"></i>   Phone</a></li>
-				<li><a href="tablet.html"><i class="fa fa-tablet" aria-hidden="true"></i>   Tablet</a></li>
+				<li><a href="index.html?maLoai=1"><i class="fa fa-mobile" aria-hidden="true"></i>   Phone</a></li>
+				<li><a href="index.php?maLoai=2"><i class="fa fa-tablet" aria-hidden="true"></i>   Tablet</a></li>
 				<li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>   Laptop</a></li>
 				<li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>   Accessories</a></li>
 				<li><a href="#" class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   My cart</a></li>
@@ -132,21 +144,21 @@ $sanPham = $db->tatCaSanPham(1);
 					<div class="col-md-6 col-xs-6">
 						<div class="row">
 							<div class="col-md-3 title-filter">
-								Điện Thoại:
+								<?php echo $duLieu['TDL']?>
 							</div>
 							<div class="col-md-2 filters">
-								<a href="#">Apple</a>
+								<a href="#"><?php echo $duLieu['L1']?></a>
 							</div>
 							<div class="col-md-2 filters">
-								<a href="#">Samsung</a>
+								<a href="#"><?php echo $duLieu['L2']?></a>
 							</div>
 							<div class="col-md-2 filters">
-								 <a href="#">Sony</a>
+								 <a href="#"><?php echo $duLieu['L3']?></a>
 							</div>
 							
 							<div class="col-md-3 filters">
 								
-								<a href="#">Tất cả</a>
+								<a href="#"><?php echo $duLieu['L4']?></a>
 							</div>
 
 
@@ -157,19 +169,19 @@ $sanPham = $db->tatCaSanPham(1);
 					<div class="col-md-6 col-xs-6">
 						<div class="row">
 							<div class="col-md-1 title-filter">
-								Giá: 
+								<?php echo $duLieu['TDL2']?>
 							</div>
 							<div class="col-md-3 filters">
-								 <a href="#">Dưới 3 triệu</a>
+								 <a href="#"><?php echo $duLieu['L5']?></a>
 							</div>
 							<div class="col-md-3 filters">
-								 <a href="#">Từ 4 đến 7 triệu</a>
+								 <a href="#"><?php echo $duLieu['L6']?></a>
 							</div>
 							<div class="col-md-3 filters">
-								 <a href="#">Trên 10 triệu</a>
+								 <a href="#"><?php echo $duLieu['L7']?></a>
 							</div>
 							<div class="col-md-2 filters">
-								 <a href="#">Tất cả</a>
+								 <a href="#"><?php echo $duLieu['L8']?></a>
 							</div>
 
 
@@ -189,6 +201,16 @@ $sanPham = $db->tatCaSanPham(1);
 				<div class="all-product">
 					<div class="row">
 						<?php
+						$total_rows= $db->coutAllProducts($maLoai);
+						$per_page= 16;
+
+						if (isset($_GET['page'])){
+								$page= $_GET['page'];
+						}else{
+								$page=1;
+						}
+
+						$sanPham = $db->tatCaSanPham($maLoai,$page,$per_page);
 						foreach ($sanPham as $row) {
 						?>
 						<div class="col-md-3 col-xs-6 format-product" >
@@ -197,7 +219,7 @@ $sanPham = $db->tatCaSanPham(1);
 									<img src="public/images/<?php echo $row['Anh'] ?>" alt="<?php echo $row['Anh']?> " class="img-responsive">
 								</div>
 								<div class="name-product">
-									 <a href="chitiet.php"><?php echo $row['TenSP'] ?></a>
+									 <a href="chitiet.php?id=<?php echo $row['MaSP']?>"><?php echo $row['TenSP'] ?></a>
 								</div>
 								<div class="price">
 									<?php echo $row['Gia']?> đ
@@ -228,28 +250,23 @@ $sanPham = $db->tatCaSanPham(1);
 		</div>
 		
 		<!-- paging -->
+
+		<?php
+			$base_url= $_SERVER['PHP_SELF']."?";
+		?>
 		<div class="paging">
 			<div class="container">
 				<div class="all-page">
 					<tr>
+						<?php
+						 	echo $db->create_links ($base_url, $total_rows, $page, $per_page);
+						?>
+						<!--
 						<td><a href="#" >
 							<span class="background-p">1</span>
 						</a></td>
-						<td><a href="#">
-							<span class="background-p">2</span>
-						</a></td>
-						<td><a href="#">
-							<span class="background-p">3</span>
-						</a></td>
-						<td><a href="#">
-							<span class="background-p">4</span>
-						</a></td>
-						<td><a href="#">
-							<span class="background-p">5</span>
-						</a></td>
-						<td><a href="#">
-							<span class="background-p">6</span>
-						</a></td>
+					-->
+						
 					</tr>
 
 				</div>
@@ -262,22 +279,20 @@ $sanPham = $db->tatCaSanPham(1);
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 information1">
-						<div class="title-i">Cuộc sống trở nên tiện nghi hơn với điện thoại di động</div>
-						<div class="content-i">Xuất hiện từ năm 1973, điện thoại di động chính thức được ra mắt trên toàn thế giới và được xem là một bước tiến vĩ đại trong lịch sử công nghệ viễn thông. Ngày nay, những chiếc điện thoại mà chúng ta sử dụng đều có thiết kế nhỏ gọn, khác xa với kiểu dáng cồng kềnh và ít chức năng của những mẫu thuộc thời kỳ sơ khai. Với nhịp sống bận rộn, thiết bị này dần trở thành vật bất ly thân của hầu hết mọi người, bởi vì ngoài chức năng nghe, gọi, nhắn tin, chúng còn là chiếc máy vi tính thu nhỏ trong túi của chúng ta. Những lúc cần thư giãn, điện thoại di động, đặc biệt là điện thoại thông minh sẽ trở thành một người bạn giải trí thú vị với đầy đủ các chức năng như chụp hình, nghe nhạc, xem phim, chơi game, lướt Facebook… Hơn nữa, kiểu dáng thời thượng, quý phái của chúng sẽ thể hiện đẳng cấp và phong cách thời trang của người chủ sở hữu.
-
-						Sự bùng nổ nhanh chóng của điện thoại thông minh đã kéo theo sự cạnh tranh của nhiều nhà sản xuất . Vì thế, các công ty lớn ngoài việc sản xuất những dòng cao cấp, bên cạnh đó còn cho ra những sản phẩm tầm trung với giá cả hợp lý để mở rộng thị trường đang hái ra tiền này. Tại CellphoneS, bạn có thể tìm thấy cho mình nhiều dòng máy với nhiều tầm giá khác nhau cùng hàng ngàn ưu đãi hấp dẫn.
+						<div class="title-i"><?php echo $duLieu['TieuDe']?></div>
+						<div class="content-i"><?php echo $duLieu['NDGT']?>
 					</div>
 
 
 				</div>
 				<div class="col-md-12">
-						<div class="title-i">Tại sao chúng ta nên lựa chọn điện thoại thông minh?</div>
+						<div class="title-i"><?php echo $duLieu['TieuDe2']?></div>
 						<div class="content-i">
 							<ul>
-								<li>Kết nối mọi người trở nên gần nhau hơn bất kể khoảng cách địa lý.</li>
-								<li>Công cụ làm việc hữu ích của những người bận rộn: xem tin tức, kiểm tra hộp thư, giao dịch ngân hàng, thanh toán trực tuyến, xem bản đồ, quản lý thời gian…</li>
-								<li>Nơi lưu giữ những khoảnh khắc đáng nhớ trong cuộc sống qua những bức ảnh, video hoặc giọng nói.</li>
-								<li>Giải toả căng thẳng sau những giờ làm việc mệt mỏi hoặc giờ giải lao bằng những ứng dụng game, xem phim hoặc nghe nhạc.</li>
+								<li><?php echo $duLieu['Li1']?></li>
+								<li><?php echo $duLieu['Li2']?></li>
+								<li><?php echo $duLieu['Li3']?></li>
+								<li><?php echo $duLieu['Li4']?></li>
 							</ul>
 							
 						</div>

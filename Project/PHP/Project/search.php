@@ -25,7 +25,7 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" href="index.html"> 
+					<a class="navbar-brand" href="index.php"> 
 						<span class="logo"><i class="fa fa-apple" aria-hidden="true"></i>  Zenstore</span>
 
 					</a>
@@ -47,8 +47,8 @@
 						</form>
 
 						
-						<li><a href="index.html"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
-						<li><a href="tablet.html"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
+						<li><a href="index.php"><i class="fa fa-mobile" aria-hidden="true"></i> Phone</a></li>
+						<li><a href="index.php"><i class="fa fa-tablet" aria-hidden="true"></i>  Tablet</a></li>
 						<li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>  Laptop</a></li>
 						<li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>  Accessories</a></li>
 						<li><a href="#" class="cart" style="padding-bottom: 5px; padding-top: 10px;"><img src="public/images/avatar.png" alt="" class="img-responsive" width="30px" height="30px"></a></li>
@@ -61,7 +61,7 @@
 			</div>
 		</nav>
 		<div class="menu-cart">
-			<div><a href="mycart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Quản lý giỏ hàng</a></div>
+			<div><a href="mycart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Quản lý giỏ hàng</a></div>
 			<div> <a href="#"><i class="fa fa-history" aria-hidden="true"></i>   Lịch sử mua hàng</a></div>
 			<div><a href="#"><i class="fa fa-globe" aria-hidden="true"></i>   Ngôn ngữ</a></div>
 			<div><a href="#"><i class="fa fa-bug" aria-hidden="true"></i>   Báo cáo sự cố</a></div>
@@ -74,8 +74,8 @@
 		</div>
 		<div class="menu-navbar">
 			<ul>
-				<li><a href="index.html"><i class="fa fa-mobile" aria-hidden="true"></i>   Phone</a></li>
-				<li><a href="tablet.html"><i class="fa fa-tablet" aria-hidden="true"></i>   Tablet</a></li>
+				<li><a href="index.php"><i class="fa fa-mobile" aria-hidden="true"></i>   Phone</a></li>
+				<li><a href="index.php"><i class="fa fa-tablet" aria-hidden="true"></i>   Tablet</a></li>
 				<li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>   Laptop</a></li>
 				<li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>   Accessories</a></li>
 				<li><a href="#" class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   My cart</a></li>

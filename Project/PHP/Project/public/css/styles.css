@@ -201,6 +201,15 @@
 	text-decoration: none;
 }
 
+.active {
+	color: red;
+}
+
+
+.all-page .active>a, .all-page .active>a:focus, .all-page .active>a:hover {
+	color: red;
+}
+
 @media(min-width: 320px) and (max-width: 767px) {
 	.background-p {
 		
