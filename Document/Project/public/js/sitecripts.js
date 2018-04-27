@@ -1,7 +1,5 @@
 $(document).ready(function() {
 	
-	
-
 	$('.format-product').mouseenter(function(){
 		$(this).css("border", "1px solid #60CBFF");
 		$(this).mouseleave(function(){
