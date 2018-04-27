@@ -65,7 +65,7 @@ class db{
 		{
 			//$link = $link."<a href='".$base_url."page=$j'> $j </a>";
 
-			$s = "<td> <a href='". $base_url. "page=$j'> <span class='background-p'> $j </span> </a> </td>;";
+			$s = "<td> <a href='". $base_url. "page=$j'> <span class='background-p'> $j </span> </a> </td> ";
 			$link = $link.$s;
 		}
 		return $link;
@@ -104,30 +104,60 @@ class db{
 		return $duLieu;
 	}
 
-	public function tenTheLoai(){
-		//2. viet cau truy van
-		$sql="SELECT * FROM theloai";
-		//3.Thuc thi cau truy van
-		$result = self::$conn->query($sql);
-		//4.Chuyen object thanh mang
-		$arr = array();
-		while($row = $result->fetch_assoc()){
-			$arr[] = $row;
+	// Tinh ket qua so ket qua tim duoc
+	public function tinhSoKetQua($timTheo, $key){
+		//viet cau truy van
+		if ($timTheo == "hang")
+		{
+			$sql= "SELECT * FROM SanPham WHERE MaLoai = 1";
 		}
-		return $arr;
-	}
-	public function tinNoiBat($x){
-		//2. viet cau truy van
-		$sql="SELECT * FROM tin WHERE tinnoibat=1 LIMIT 0,$x";
-		//3.Thuc thi cau truy van
-		$result = self::$conn->query($sql);
-		//4.Chuyen object thanh mang
-		$arr = array();
-		while($row = $result->fetch_assoc()){
-			$arr[] = $row;
+		else if ($timTheo == "gia") {
+			$sql= "SELECT * FROM SanPham WHERE MaLoai = 2";
+		} else {
+
+			$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%'";
+
 		}
-		return $arr;
+
+		//thuc thi 
+		$result = self::$conn->query($sql);
+		//chuyen object thanh mang
+		return $result->num_rows;
 	}
+
+	// Search
+	public function timSanPham($timTheo, $key, $page, $per_page) {
+
+			// Tinh so thu tu trang bat dau hien thi
+			$fist_link = ($page-1)* $per_page;
+			//2. viet cau truy van
+			if ($timTheo == "hang")
+			{
+				$sql="SELECT * FROM SanPham WHERE MaLoai = 1 LIMIT $fist_link,$per_page";
+				
+			}
+			else if ($timTheo == "gia") {
+				$sql= "SELECT * FROM SanPham WHERE MaLoai = 2";
+			} else {
+
+				$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%' LIMIT $fist_link,$per_page";
+
+			}
+			
+			//3.Thuc thi cau truy van
+			$result = self::$conn->query($sql);
+			
+			//4.Chuyen object thanh mang
+			$arr = array();
+			while($row = $result->fetch_assoc()){
+				$arr[] = $row;
+			}
+			return $arr;
+		
+	}
+
+
+	
 	//5.Dong ket noi
 	public function __destruct(){
 		self::$conn->close();
