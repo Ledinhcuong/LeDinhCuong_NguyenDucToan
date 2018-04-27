@@ -13,25 +13,25 @@ class db{
 
 	public function tatCaSanPham($loai, $page, $per_page) {
 
-			$fist_link = ($page-1)* $per_page;
+		$fist_link = ($page-1)* $per_page;
 			//2. viet cau truy van
-			if ($loai == 1)
-			{
-				$sql="SELECT * FROM SanPham WHERE MaLoai = 1 LIMIT $fist_link,$per_page";
-			}
-			else
-			{
-				$sql="SELECT * FROM SanPham WHERE MaLoai = 2 LIMIT $fist_link,$per_page";
-			}
+		if ($loai == 1)
+		{
+			$sql="SELECT * FROM SanPham WHERE MaLoai = 1 LIMIT $fist_link,$per_page";
+		}
+		else
+		{
+			$sql="SELECT * FROM SanPham WHERE MaLoai = 2 LIMIT $fist_link,$per_page";
+		}
 			//3.Thuc thi cau truy van
-			$result = self::$conn->query($sql);
-			
+		$result = self::$conn->query($sql);
+
 			//4.Chuyen object thanh mang
-			$arr = array();
-			while($row = $result->fetch_assoc()){
-				$arr[] = $row;
-			}
-			return $arr;
+		$arr = array();
+		while($row = $result->fetch_assoc()){
+			$arr[] = $row;
+		}
+		return $arr;
 		
 		
 		
@@ -129,30 +129,53 @@ class db{
 	public function timSanPham($timTheo, $key, $page, $per_page) {
 
 			// Tinh so thu tu trang bat dau hien thi
-			$fist_link = ($page-1)* $per_page;
+		$fist_link = ($page-1)* $per_page;
 			//2. viet cau truy van
-			if ($timTheo == "hang")
-			{
-				$sql= "SELECT * FROM SanPham WHERE Hang LIKE '".$key."' LIMIT $fist_link,$per_page";
+		if ($timTheo == "hang")
+		{
+			$sql= "SELECT * FROM SanPham WHERE Hang LIKE '".$key."' LIMIT $fist_link,$per_page";
 
-			}
-			else if ($timTheo == "gia") {
-				$sql= "SELECT * FROM SanPham WHERE " .$key. " LIMIT $fist_link,$per_page";
-			} else {
+		}
+		else if ($timTheo == "gia") {
+			$sql= "SELECT * FROM SanPham WHERE " .$key. " LIMIT $fist_link,$per_page";
+		} else {
 
-				$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%' LIMIT $fist_link,$per_page";
+			$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%' LIMIT $fist_link,$per_page";
 
-			}
-			
+		}
+
 			//3.Thuc thi cau truy van
-			$result = self::$conn->query($sql);
-			
+		$result = self::$conn->query($sql);
+
 			//4.Chuyen object thanh mang
-			$arr = array();
-			while($row = $result->fetch_assoc()){
-				$arr[] = $row;
-			}
-			return $arr;
+		$arr = array();
+		while($row = $result->fetch_assoc()){
+			$arr[] = $row;
+		}
+		return $arr;
+		
+	}
+
+	// Quang cao
+	public function noiDungQuangCao() {
+
+			
+
+			//2. viet cau truy van
+		
+		$sql="SELECT * FROM QuangCao WHERE IDQC IN(".rand(1,4). "," . rand(1,4) .") AND Moi = 1"; 
+
+			//3.Thuc thi cau truy van
+		$result = self::$conn->query($sql);
+
+			//4.Chuyen object thanh mang
+		$arr = array();
+		while($row = $result->fetch_assoc()){
+			$arr[] = $row;
+		}
+		return $arr;
+		
+		
 		
 	}
 

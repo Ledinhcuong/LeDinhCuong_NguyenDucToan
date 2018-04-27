@@ -44,3 +44,24 @@ $(document).ready(function() {
 
 
 });
+
+function validateForm() {
+	if (validateSearch()) {
+		return true;
+	} else {
+		$('#search').attr("placeholder", "Vui lòng nhập lại");
+		$('#search').val("");
+		return false;
+	}
+}
+
+function validateSearch() {
+	var field = $('#search').val();
+	var filter = /^\S*(\w+\s*){1,4}$/;
+
+	if (filter.test(field) == false) {
+		return false;
+	} else {
+		return true;
+	}
+}

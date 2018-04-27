@@ -14,6 +14,7 @@ else
 	
 }
 
+$qc = $db->noiDungQuangCao();
 $duLieu = $db->layDuLieuTrang($maLoai);
 
 ?>
@@ -58,9 +59,9 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 					
 					<ul class="nav navbar-nav navbar-right">
 
-						<form action="search.php" method="get" class="navbar-form navbar-left" role="search" >
+						<form action="search.php" method="get" class="navbar-form navbar-left" role="search" onsubmit="return validateForm();">
 							<div class="form-group">
-								<input type="text" class="form-control" name="key" placeholder="Nhập tên sản phẩm ...">
+								<input type="text" id="search" class="form-control" name="key" placeholder="Nhập tên sản phẩm ...">
 
 							</div>
 							<button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -113,25 +114,25 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 		<!--advertisement-->
 		<div class="advertisement">
 			<div class="container">
+				<?php 
+				foreach ($qc as $nd) {
 				
+				?>
 				<div class="row">
 					<div class="col-md-6 col-xs-6 all-ad">
 						<div class="ad1">
 							<div class="image-ad">
-								<img src="public/images/ad1.png" alt="ad1" class="img-responsive">
+								<a href="chitiet.php?id=<?php echo $nd['MaSP']?>"><img src="public/images/<?php echo $nd['Anh'] ?>" alt="ad1" class="img-responsive"></a>
+								
 							</div>
 
 						</div>
 
 					</div>
-					<div class="col-md-6 col-xs-6 all-ad">
-						<div class="ad1">
-							<div class="image-ad">
-								<img src="public/images/ad2.png" alt="ad2" class="img-responsive">
-							</div>
-
-						</div>
-					</div>
+					<?php
+					} 
+					?>
+					
 				</div>
 			</div>
 
@@ -158,7 +159,7 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 							
 							<div class="col-md-3 filters">
 								
-								<a href="search.php?loc=hang_<?php echo $duLieu['L4']?>"><?php echo $duLieu['L4']?></a>
+								<a href="search.php"><?php echo $duLieu['L4']?></a>
 							</div>
 
 
@@ -181,7 +182,7 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 								 <a href="search.php?loc=gia_<?php echo $duLieu['L7']?>"><?php echo $duLieu['L7']?></a>
 							</div>
 							<div class="col-md-2 filters">
-								 <a href="#"><?php echo $duLieu['L8']?></a>
+								 <a href="search.php"><?php echo $duLieu['L8']?></a>
 							</div>
 
 
