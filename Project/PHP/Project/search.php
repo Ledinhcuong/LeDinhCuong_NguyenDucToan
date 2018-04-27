@@ -1,3 +1,14 @@
+<?php 
+require "public/app/db.php";
+require "public/app/config.php";
+$timTheo = "";
+$key = $_GET['key'];
+echo $key;
+$db = new db();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,260 +107,46 @@
 		<div class="product">
 			<div class="container">
 				<div class="all-product">
-					<div class="title-search" style="color: #000; margin: 10px 0px; font-size: 25px;">
-						Kết quả tìm kiếm
-					</div>
 					<div class="row">
+						<?php
+
+						$total_rows= $db->tinhSoKetQua($timTheo, $key);
+						$per_page= 12;
+
+						if (isset($_GET['page'])){
+								$page= $_GET['page'];
+						}else{
+								$page=1;
+						}
+
+						$sanPham = $db->timSanPham($timTheo, $key, $page, $per_page); 
+						foreach ($sanPham as $row) {
+						?>
 						<div class="col-md-3 col-xs-6 format-product" >
 							<div class="content-product">
 								<div class="image-product">
-									<img src="public/images/iphonex.jpg" alt="iphonex" class="img-responsive">
+									<img src="public/images/<?php echo $row['Anh'] ?>" alt="<?php echo $row['Anh']?> " class="img-responsive">
 								</div>
 								<div class="name-product">
-									 <a href="chitiet.html">Iphone X 256GB</a>
+									 <a href="chitiet.php?id=<?php echo $row['MaSP']?>"><?php echo $row['TenSP'] ?></a>
 								</div>
 								<div class="price">
-									34.790.000 đ
+									<?php echo $row['Gia']?> đ
 								</div>
 							</div>
-							
 
 						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone8.jpg" alt="iphone8" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 8 256GB</a>
-								</div>
-								<div class="price">
-									25.790.000 đ
-								</div>
-							</div>
-							
+
+						<?php
+						} 
+						?>
 
 						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/galaxys9.jpg" alt="galaxys9" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Samsung galaxy s9</a>
-								</div>
-								<div class="price">
-									19.990.000 đ
-								</div>
-							</div>
 							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphonex.jpg" alt="iphonex" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone X 128GB</a>
-								</div>
-								<div class="price">
-									28.790.000 đ
-								</div>
-							</div>
-							
-
-						</div>
+						
 
 					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6 format-product" >
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/galaxys9plus.jpg" alt="galaxys9plus" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Galaxy S9 plus</a>
-								</div>
-								<div class="price">
-									24.790.000 đ
-								</div>
-							</div>
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/galaxynote8.jpg" alt="galaxynote8" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Galaxy Note 8</a>
-								</div>
-								<div class="price">
-									22.490.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/galaxys8.jpg" alt="galaxys8" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Galaxy S8</a>
-								</div>
-								<div class="price">
-									15.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone6s.jpg" alt="iphone6s" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 6s 32GB</a>
-								</div>
-								<div class="price">
-									12.490.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6 format-product" >
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone6s.jpg" alt="iphone6s" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 6s 64GB</a>
-								</div>
-								<div class="price">
-									13.790.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone7plus.jpg" alt="iphone7plus" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 7 plus 32GB</a>
-								</div>
-								<div class="price">
-									19.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/nokia8.jpg" alt="nokia8" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Nokia 8</a>
-								</div>
-								<div class="price">
-									12.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/sonyxz.jpg" alt="sonyxzpremium" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Sony Xperia Premium</a>
-								</div>
-								<div class="price">
-									15.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6 format-product" >
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone7plus.jpg" alt="iphone7plus" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 7 plus 64GB</a>
-								</div>
-								<div class="price">
-									19.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/iphone7.jpg" alt="iphone7" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Iphone 7 32GB</a>
-								</div>
-								<div class="price">
-									15.990.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/sonyxzpink.jpg" alt="sonyxzpink" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Sony Xperia Premium Pink</a>
-								</div>
-								<div class="price">
-									14.490.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-							<div class="col-md-3 col-xs-6 format-product">
-							<div class="content-product">
-								<div class="image-product">
-									<img src="public/images/galaxya8.jpg" alt="galaxya8" class="img-responsive">
-								</div>
-								<div class="name-product">
-									 <a href="#">Samsung Galaxy A8+</a>
-								</div>
-								<div class="price">
-									13.490.000 đ
-								</div>
-							</div>
-							
-
-						</div>
-
-					</div>
-
+					
 				</div>
 
 

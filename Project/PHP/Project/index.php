@@ -58,9 +58,9 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 					
 					<ul class="nav navbar-nav navbar-right">
 
-						<form action="search.php" class="navbar-form navbar-left" role="search" >
+						<form action="search.php" method="get" class="navbar-form navbar-left" role="search" >
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Bạn tìm gì ...">
+								<input type="text" class="form-control" name="key" placeholder="Nhập tên sản phẩm ...">
 
 							</div>
 							<button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -147,7 +147,7 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 								<?php echo $duLieu['TDL']?>
 							</div>
 							<div class="col-md-2 filters">
-								<a href="#"><?php echo $duLieu['L1']?></a>
+								<a href="search.php?loai=1,ten=2"><?php echo $duLieu['L1']?></a>
 							</div>
 							<div class="col-md-2 filters">
 								<a href="#"><?php echo $duLieu['L2']?></a>
@@ -238,9 +238,6 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 
 					</div>
 					
-				
-					
-
 				</div>
 
 
