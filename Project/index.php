@@ -217,7 +217,10 @@ $duLieu = $db->layDuLieuTrang($maLoai);
 						<div class="col-md-3 col-xs-6 format-product" >
 							<div class="content-product">
 								<div class="image-product">
-									<img src="public/images/<?php echo $row['Anh'] ?>" alt="<?php echo $row['Anh']?> " class="img-responsive">
+									<a href="chitiet.php?id=<?php echo $row['MaSP']?>">
+										<img src="public/images/<?php echo $row['Anh'] ?>" alt="<?php echo $row['Anh']?> " class="img-responsive">
+									</a>
+									
 								</div>
 								<div class="name-product">
 									 <a href="chitiet.php?id=<?php echo $row['MaSP']?>"><?php echo $row['TenSP'] ?></a>

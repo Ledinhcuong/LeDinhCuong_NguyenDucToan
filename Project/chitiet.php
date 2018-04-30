@@ -1,9 +1,11 @@
+
 <?php
 $id = $_GET['id'];
 require "public/app/db.php";
 require "public/app/config.php";
 $db = new db();
 $sanPham = $db->chiTietSanPham($id);
+
 
 ?>
 
@@ -225,7 +227,7 @@ $sanPham = $db->chiTietSanPham($id);
 						<div class="row">
 							
 							<div class="col-md-9 btn-a">
-								<a href="#">
+								<a href="xulycart.php?masp=<?php echo $sanPham['MaSP'] ?>">
 									<span class="add-button">
 										Thêm vào giỏ hàng
 										<div class="icon-add">
@@ -256,11 +258,11 @@ $sanPham = $db->chiTietSanPham($id);
 							<li>Camera sau: <?php echo $sanPham['CamSau']?> </li>
 							<li>Camera trước: <?php echo $sanPham['CamTruoc']?> </li>
 							<li>Cpu: <?php echo $sanPham['CPU'] ?> </li>
-							<li>Ram: <?php echo $sanPham['Ram'] ?> </li>
-							<li>Bộ nhớ trong: <?php echo $sanPham['BoNho'] ?> </li>
-							<li>Chất liệu: <?php echo $sanPham['BoNho']?> </li>
-							<li>Trọng lượng: <?php echo $sanPham['TrongLuong']?> </li>
-							<li>Dung lượng pin: <?php echo $sanPham['DungLuongPin']?> </li>
+							<li>Ram: <?php echo $sanPham['Ram'] ?> GB </li>
+							<li>Bộ nhớ trong: <?php echo $sanPham['BoNho'] ?> GB</li>
+							<li>Chất liệu: <?php echo $sanPham['ChatLieu']?> </li>
+							<li>Trọng lượng: <?php echo $sanPham['TrongLuong']?> g</li>
+							<li>Dung lượng pin: <?php echo $sanPham['DungLuongPin']?> ma</li>
 						</ul>	
 				</div>
 

@@ -1,6 +1,16 @@
+
 $(document).ready(function() {
-	
-	
+
+	$('.btn-plus').click(function(){
+		
+		var num = eval($(this).prev().children().html());
+		$(this).prev().children().html(num + 0.5);
+		var price = $(this).prev().prev().children().html();
+		$(this).next().children().html(price * (num + 0.5));
+
+
+
+	});
 
 	$('.format-product').mouseenter(function(){
 		$(this).css("border", "1px solid #60CBFF");
@@ -65,3 +75,5 @@ function validateSearch() {
 		return true;
 	}
 }
+
+

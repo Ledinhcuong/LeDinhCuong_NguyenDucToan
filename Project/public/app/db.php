@@ -163,7 +163,7 @@ class db{
 
 			//2. viet cau truy van
 		
-		$sql="SELECT * FROM QuangCao WHERE IDQC IN(".rand(1,4). "," . rand(1,4) .") AND Moi = 1"; 
+		$sql="SELECT * FROM QuangCao WHERE IDQC IN(".rand(1,8). "," . rand(1,8) .") AND Moi = 1"; 
 
 			//3.Thuc thi cau truy van
 		$result = self::$conn->query($sql);
