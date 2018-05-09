@@ -64,9 +64,20 @@ class db{
 		for($j=1; $j <= $total_links ; $j++)
 		{
 			//$link = $link."<a href='".$base_url."page=$j'> $j </a>";
+			if ($j == $page)
+			{
+				
+				$s = "<td> <a href='". $base_url. "page=$j'> <span class='background-p active'> $j </span> </a> </td> ";
+				$link = $link.$s;
+				
 
-			$s = "<td> <a href='". $base_url. "page=$j'> <span class='background-p'> $j </span> </a> </td> ";
-			$link = $link.$s;
+			}
+			else
+			{
+				$s = "<td> <a href='". $base_url. "page=$j'> <span class='background-p'> $j </span> </a> </td> ";
+				$link = $link.$s;
+			}
+			
 		}
 		return $link;
 	}
