@@ -1,6 +1,5 @@
 
 <?php 
-require "db.php";
 class user extends db {
 
 	public function logout() {
