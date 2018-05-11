@@ -109,6 +109,7 @@ if ($_POST['username'] && $_POST['password'])
 			</div>
 
 		</div>
+	</div>
 		
 		
 		<!-- footer -->

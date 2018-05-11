@@ -24,7 +24,6 @@ class db{
 	}
 
 
-	
 	//5.Dong ket noi
 	public function __destruct(){
 		self::$conn->close();

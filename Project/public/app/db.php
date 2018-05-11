@@ -93,12 +93,7 @@ class db{
 		
 		// Chuyen doi tuong thanh mang
 		$sanPham = $result->fetch_assoc();
-		//$arr = array();
-		/*
-		while($row = $result->fetch_assoc()){
-				$arr[] = $row;
-		}
-		*/
+		
 		return $sanPham;
 	}
 
