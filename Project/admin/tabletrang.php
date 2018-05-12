@@ -10,7 +10,7 @@ if (isset($_SESSION['username']) == false)
 	header("location: login.php");
 }
 
-$sp = new sanpham();
+$trang = new dulieutrang();
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +114,7 @@ $sp = new sanpham();
 					</div>
 
 					<div class="col-md-2">
-						<a href="tabletrang.php">
+						<a href="#">
 							<span class="btn-table">
 								Dữ liệu trang
 							</span>
@@ -127,47 +127,43 @@ $sp = new sanpham();
 
 			<!-- list product -->
 			<div class="list-table">
-				<div class="name-list">Bảng Sản Phẩm</div>
+				<div class="name-list">Dữ liệu trên trang</div>
 				<div class="add-product">
-					<a href="formaddproduct.php" style="font-size: 30px; margin-bottom: 10px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+					<a href="formdulieutrang.php" style="font-size: 30px; margin-bottom: 10px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
 				</div>
 				<div class="table">
 					<div class="title">
 						<div class="row">
-							<div class="col-md-1 b-title">Mã loại</div>
-							<div class="col-md-2 b-title">Mã sản phẩm</div>
-							<div class="col-md-2 b-title">Tên sản phẩm</div>
-							<div class="col-md-2 b-title">Giá</div>
-							<div class="col-md-1 b-title">Hãng</div>
-							<div class="col-md-2 b-title">Hệ Điều Hành</div>
+							<div class="col-md-2 b-title">Mã loại</div>
+							<div class="col-md-2 b-title">Kiểu Search 1</div>
+							<div class="col-md-2 b-title">Kiểu Search 2</div>
 							<div class="col-md-2 b-title">Thao tác</div>
 
 						</div>
 					</div>
 					<?php
-					$total_rows= $sp->coutAllProducts();
-					$per_page= 30;
+					$total_rows= $trang->coutAllDLTrang();
+					$per_page= 10;
 
 					if (isset($_GET['page'])){
 						$page= $_GET['page'];
 					}else{
 						$page=1;
 					}
-					$product = $sp->tatCaSanPham($page,$per_page);
-					foreach ($product as $key) {
+					$page = $trang->tatCaDuLieu($page,$per_page);
+					foreach ($page as $key) {
 						?>
 						<div class="row">
-							<div class="col-md-1 s-title"><?php echo $key['MaLoai']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['MaSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['TenSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['Gia']?> Đ</div>
-							<div class="col-md-1 s-title"><?php echo $key['Gia']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['HeDieuHanh']?></div>
-							<div class="col-md-2 " style="padding-top: 20px;">
+							<div class="col-md-2 s-title"><?php echo $key['MaLoai']?></div>
+							<div class="col-md-2 s-title"><?php echo $key['TDL']?></div>
+							<div class="col-md-2 s-title"><?php echo $key['TDL2']?></div>
+							
+							
+							<div class="col-md-6 " style="padding-top: 20px;">
 
 								<button class="chitiet">Chi Tiết</button>
-								<a href="editproduct.php?MaSP= <?php echo $key['MaSP'];?>"><button>Sửa</button></a>
-								<a href="xoasanpham.php?MaSP= <?php echo $key['MaSP'];?>"><button>Xóa</button></a>
+								<a href="editdulieutrang.php?MaLoai= <?php echo $key['MaLoai'];?>"><button>Sửa</button></a>
+								<a href="xoadulieutrang.php?MaLoai= <?php echo $key['MaLoai'];?>"><button>Xóa</button></a>
 
 							</div>
 
@@ -175,35 +171,43 @@ $sp = new sanpham();
 
 						<div class="table-hidden">
 							<div class="row">
-								<div class="col-md-4">
-									<div class="image-product" style="padding: 50px;">
-										<img src="../public/images/<?php echo $key['Anh']?>" alt="<?php echo $key['Anh']?>" class="img-responsive">
-									</div>
+								<div class="col-md-6 more-info">
+									<ul>
+										<li>Search 1  : <?php echo $key['L1'] ?> </li>
+										<li>Search 2  : <?php echo $key['L2']?></li>
+										<li>Search 3  : <?php echo $key['L3'] ?></li>
+										<li>Search 4 : <?php echo $key['L4'] ?></li>
+										<li>Search 5 : <?php echo $key['L5']?> </li>
+										<li>Search 6 : <?php echo $key['L6']?></li>
+										<li>Search 7 : <?php echo $key['L7']?></li>
+										<li>Search 8 : <?php echo $key['L8'] ?></li>
+										<li>Tiêu đề giới thiệu : <?php echo $key['TieuDe']?> GB</li>
+										
+									</ul>
 
 								</div>
-								<div class="col-md-8 more-info">
+								<div class="col-md-6 more-info">
 									<ul>
-										<li>Hệ điều hành  : <?php echo $key['ManHinh'] ?> </li>
-										<li>Cam sau : <?php echo $key['CamSau']?></li>
-										<li>Cam trước : <?php echo $key['CamTruoc'] ?></li>
-										<li>Cpu : <?php echo $key['CPU'] ?></li>
-										<li>Ram : <?php echo $key['Ram']?> GB</li>
-										<li>Bộ nhớ  : <?php echo $key['BoNho']?></li>
-										<li>Chất liệu : <?php echo $key['ChatLieu']?></li>
-										<li>Trọng lượng : <?php echo $key['TrongLuong'] ?>g</li>
-										<li>Dung lượng pin: <?php echo $key['DungLuongPin']?></li>
+										
+										<li>Tiêu đề lợi ích  : <?php echo $key['TieuDe2'] ?> </li>
+										<li>Lợi ích 1 : <?php echo $key['Li1']?></li>
+										<li>Lợi ích 2 : <?php echo $key['Li2'] ?></li>
+										<li>Lợi ích 3 : <?php echo $key['Li3'] ?></li>
+										<li>Lợi ích 4 : <?php echo $key['Li4']?> </li>
 									</ul>
 								</div>
+
 								<div class="col-md-12">
 									<div class="tdacdiem">
-										Đặc Điểm:
+										Nội dung giới thiệu:
 									</div>
 									<span>
-										<?php echo $key['DacDiem'] ?>
+										<?php echo $key['NDGT'] ?>
 									</span>
 								</div>
 
 							</div>
+							
 
 						</div>
 						<?php
@@ -223,7 +227,7 @@ $sp = new sanpham();
 					<div class="all-page">
 						<tr>
 							<?php
-								echo $sp->create_links($base_url, $total_rows, $page, $per_page);
+								echo $trang->create_links($base_url, $total_rows, $page, $per_page);
 							?>
 						</tr>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Thêm sản phẩm</title>
+	<title>Thêm du liệu trang</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="public/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -45,9 +45,9 @@
 	<div class="content">
 		<div class="them-sp" style="margin: 50px 0;">
 			<div class="container">
-				<form action="themsanpham.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data" onsubmit="return validateformProduct();">
+				<form action="themvaodulieutrang.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data" onsubmit="return validateTrang();">
 					<div class="form-group">
-						<legend style="color: #009688">Thêm sản phẩm</legend>
+						<legend style="color: #009688">Thêm thành phần cho trang</legend>
 
 					</div>
 
@@ -61,126 +61,144 @@
 
 
 					<div class="form-group">
-						<label for="tensp" class="col-sm-2 control-label">Tên sản phẩm: </label>
+						<label for="tdl" class="col-sm-2 control-label">Tiêu đề tìm kiếm 1: </label>
 						<div class="col-sm-10">
-							<input type="text" name="tensp" id="tensp" class="form-control">
+							<input type="text" name="tdl" id="tdl" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="gia" class="col-sm-2 control-label">Giá: </label>
+						<label for="l1" class="col-sm-2 control-label">Tìm theo 1: </label>
 						<div class="col-sm-10">
-							<input type="text" name="gia" id="gia" class="form-control">
+							<input type="text" name="l1" id="l1" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="hang" class="col-sm-2 control-label">Hãng: </label>
+						<label for="l2" class="col-sm-2 control-label">Tìm theo 2: </label>
 						<div class="col-sm-10">
-							<input type="text" name="hang" id="hang" class="form-control">
+							<input type="text" name="l2" id="l2" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="manhinh" class="col-sm-2 control-label">Màn hình: </label>
+						<label for="l3" class="col-sm-2 control-label">Tìm theo 3: </label>
 						<div class="col-sm-10">
-							<input type="text" name="manhinh" id="manhinh" class="form-control">
-							<span class="help-block"></span>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="hedieuhanh" class="col-sm-2 control-label">Hệ điều hành: </label>
-						<div class="col-sm-10">
-							<input type="text" name="hedieuhanh" id="hedieuhanh" class="form-control">
+							<input type="text" name="l3" id="l3" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="camsau" class="col-sm-2 control-label">Camera sau: </label>
+						<label for="l4" class="col-sm-2 control-label">Tìm theo 4: </label>
 						<div class="col-sm-10">
-							<input type="text" name="camsau" id="camsau" class="form-control">
+							<input type="text" name="l4" id="l4" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="camtruoc" class="col-sm-2 control-label">Camera trước: </label>
+						<label for="tdl2" class="col-sm-2 control-label">Tiêu đề tìm kiếm 2: </label>
 						<div class="col-sm-10">
-							<input type="text" name="camtruoc" id="camtruoc" class="form-control">
+							<input type="text" name="tdl2" id="tdl2" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="cpu" class="col-sm-2 control-label">CPU: </label>
+						<label for="l5" class="col-sm-2 control-label">Tìm theo 5: </label>
 						<div class="col-sm-10">
-							<input type="text" name="cpu" id="cpu" class="form-control">
+							<input type="text" name="l5" id="l5" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="ram" class="col-sm-2 control-label">RAM: </label>
+						<label for="l6" class="col-sm-2 control-label">Tìm theo 6: </label>
 						<div class="col-sm-10">
-							<input type="text" name="ram" id="ram" class="form-control">
+							<input type="text" name="l6" id="l6" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="bonho" class="col-sm-2 control-label">Bộ nhớ: </label>
+						<label for="l7" class="col-sm-2 control-label">Tìm theo 7: </label>
 						<div class="col-sm-10">
-							<input type="text" name="bonho" id="bonho" class="form-control">
+							<input type="text" name="l7" id="l7" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="chatlieu" class="col-sm-2 control-label">Chất liệu: </label>
+						<label for="l8" class="col-sm-2 control-label">Tìm theo 8: </label>
 						<div class="col-sm-10">
-							<input type="text" name="chatlieu" id="chatlieu" class="form-control">
+							<input type="text" name="l8" id="l8" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="trongluong" class="col-sm-2 control-label">Trọng lượng: </label>
-						<div class="col-sm-10">
-							<input type="text" name="trongluong" id="trongluong" class="form-control">
-							<span class="help-block"></span>
-						</div>
-					</div>
+			
 
 					<div class="form-group">
-						<label for="pin" class="col-sm-2 control-label">Dung lượng pin: </label>
+						<label for="tieude" class="col-sm-2 control-label">Tiêu đề giới thiệu: </label>
 						<div class="col-sm-10">
-							<input type="text" name="pin" id="pin" class="form-control">
+							<input type="text" name="tieude" id="tieude" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					
-
 					<div class="form-group">
-						<label for="dacdiem" class="col-sm-2 control-label">Đặc điểm: </label>
+						<label for="ndgt" class="col-sm-2 control-label">Nội dung giới thiệu: </label>
 						<div class="col-sm-10">
-							<textarea name="dacdiem" id="dacdiem" cols="30" rows="5" class="form-control"></textarea>
+							<textarea name="ndgt" id="ndgt" cols="30" rows="5" class="form-control"></textarea>
 							<span class="help-block"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="anh" class="col-sm-2 control-label">Tệp ảnh </label>
+						<label for="tieude2" class="col-sm-2 control-label">Tiêu đề lợi ích: </label>
 						<div class="col-sm-10">
-							<input type="file" id="anh" name="fileUpload" class="form-control" style="opacity: 0.3">
+							<input type="text" name="tieude2" id="tieude2" class="form-control">
 							<span class="help-block"></span>
 						</div>
 					</div>
 
+					<div class="form-group">
+						<label for="li1" class="col-sm-2 control-label">Lợi ích 1: </label>
+						<div class="col-sm-10">
+							<input type="text" name="li1" id="li1" class="form-control">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="li2" class="col-sm-2 control-label">Lợi ích 2: </label>
+						<div class="col-sm-10">
+							<input type="text" name="li2" id="li2" class="form-control">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="li3" class="col-sm-2 control-label">Lợi ích 3: </label>
+						<div class="col-sm-10">
+							<input type="text" name="li3" id="li3" class="form-control">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="li4" class="col-sm-2 control-label">Lợi ích 4: </label>
+						<div class="col-sm-10">
+							<input type="text" name="li4" id="li4" class="form-control">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					
 
 					<div class="form-group">
 						<div class="col-sm-10 col-sm-offset-2">

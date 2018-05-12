@@ -55,6 +55,24 @@
 	margin: 90px 0px;
 }
 
+/*----------- other table -----------------*/
+.other-table {
+	padding: 20px 0;
+	margin: 30px 0;
+}
+
+.other-table a {
+	text-decoration: none;
+}
+.btn-table {
+	padding: 10px 30px;
+	border-radius: 12px;
+	background: #009688;
+	color: #fff;
+	font-weight: bold;
+	
+}
+
 
 /* -------------- list product ----------*/
 .list-table {
