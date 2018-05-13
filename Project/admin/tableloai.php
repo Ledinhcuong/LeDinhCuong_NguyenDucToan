@@ -23,7 +23,7 @@ $loai = new loai();
 	<link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="public/css/mystyles.css">
 	<script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="public/js/mycripts.js"></script>
+	<script type="text/javascript" src="public/js/myscripts.js"></script>
 </head>
 <body>	
 	<!--header-->
@@ -51,23 +51,14 @@ $loai = new loai();
 					
 					<ul class="nav navbar-nav navbar-right">
 
-						<form action="search.php" method="get" class="navbar-form navbar-left" role="search" onsubmit="return validateForm();">
-							<div class="form-group">
-								<input type="text" id="search" class="form-control" name="key" placeholder="Nhập tên sản phẩm ...">
-
-							</div>
-							<button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-
-						</form>
-
+						
 
 
 						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Wellcome: <?php echo $_SESSION['username']; ?></a></li>
 						<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>  Settings</a></li>
 						<li><a href="#"> <i class="fa fa-commenting" aria-hidden="true"></i>  Message</a></li>
 						<li><a href="logout.php?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-						<li><a href="#" class="cart" style="padding-bottom: 5px; padding-top: 10px;"><img src="public/images/avatar.png" alt="" class="img-responsive" width="30px" height="30px"></a></li>
-
+						
 
 
 					</ul>

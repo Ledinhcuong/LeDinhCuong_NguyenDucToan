@@ -1,4 +1,5 @@
 <?php
+require "config.php";
 class db{
 
 	//tao bien ket noi
@@ -6,11 +7,14 @@ class db{
 
 	//1.Ket noi trong ham construct
 	public function __construct(){
-		self::$conn = new mysqli("localhost","root","mysql","QuanLy");
+
+		//self::$conn = new mysqli("localhost","root","mysql","QuanLy");
+		self::$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 		//hien thi tieng viet
 		self::$conn->set_charset('utf8');
 	}
 
+	// Phuong thuc tinh dung de lay danh sach tat ca cac san pham tren trang
 	public function tatCaSanPham($loai, $page, $per_page) {
 
 		$fist_link = ($page-1)* $per_page;
@@ -97,6 +101,7 @@ class db{
 		return $sanPham;
 	}
 
+	// Lay du lieu trang cho trang index
 	public function layDuLieuTrang($id)
 	{
 		$sql = "SELECT * FROM DuLieuTrang WHERE MaLoai = $id";
@@ -162,14 +167,29 @@ class db{
 		
 	}
 
+	// Tinh so luong quang cao moi da duoc them
+	public function tinhSoQuangCao()
+	{
+
+
+		$sql= "SELECT * FROM QuangCao WHERE Moi = 1";
+
+		
+
+		//thuc thi 
+		$result = self::$conn->query($sql);
+		
+		return $result->num_rows;
+	}
+
 	// Quang cao
 	public function noiDungQuangCao() {
 
 			
-
-			//2. viet cau truy van
-		
-		$sql="SELECT * FROM QuangCao WHERE IDQC IN(".rand(1,8). "," . rand(1,8) .") AND Moi = 1"; 
+		$numNew = $this->tinhSoQuangCao();
+	
+		//2. viet cau truy van
+		$sql="SELECT * FROM QuangCao WHERE IDQC IN(".rand(1,$numNew). "," . rand(1,$numNew) .") AND Moi = 1"; 
 
 			//3.Thuc thi cau truy van
 		$result = self::$conn->query($sql);

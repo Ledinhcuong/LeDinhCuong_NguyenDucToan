@@ -3,6 +3,7 @@
 class dulieutrang extends db {
 
 
+	// Sua thong tin cua trang len co so du lieu
 	public function suaLieuTrang($maloaicu, $maLoai, $tdl, $tdl2, $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8, $tieude, $ndgt, $tieude2, $li1, $li2, $li3, $li4)
 	{
 		
@@ -16,6 +17,7 @@ class dulieutrang extends db {
 
 	}
 
+	// Lay du lieu mot trang
 	public function chiTietTrang($maLoai)
 	{
 		$sql = "SELECT * FROM DuLieuTrang WHERE MaLoai = $maLoai";
@@ -28,13 +30,16 @@ class dulieutrang extends db {
 		
 		return $sanPham;
 	}
-	
+
+	// Xoa mot trang khoi co so du lieu	
 	public function deleteDuLieu($maLoai)
 	{
 		$sql="DELETE FROM DuLieuTrang  WHERE MaLoai= $maLoai";
 		$result = self::$conn->query($sql);
 	}
 
+
+	// Them du lieu mot trang vao co so du lieu
 	public function addDuLieu($maLoai, $tdl, $tdl2, $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8, $tieude, $ndgt, $tieude2, $li1, $li2, $li3, $li4)
 	{
 		$sql = "INSERT INTO DuLieuTrang (MaLoai, TDL, TDL2, L1, L2, L3, L4, L5, L6, L7, L8, TieuDe, NDGT, TieuDe2, Li1, Li2, Li3, Li4) VALUES ($maLoai, '$tdl', '$tdl2', '$l1', '$l2', '$l3', '$l4', '$l5', '$l6', '$l7', '$l8', '$tieude', '$ndgt', '$tieude2', '$li1', '$li2', '$li3', '$li4')";
@@ -46,6 +51,7 @@ class dulieutrang extends db {
 		return $result;
 	}
 
+	// Lay tat ca du lieu cac trang
 	public function tatCaDuLieu($page, $per_page) {
 
 		$fist_link = ($page-1)* $per_page;

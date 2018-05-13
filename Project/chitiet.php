@@ -1,8 +1,9 @@
 
 <?php
+
+require "app/config.php";
+require "app/db.php";
 $id = $_GET['id'];
-require "public/app/db.php";
-require "public/app/config.php";
 $db = new db();
 $sanPham = $db->chiTietSanPham($id);
 

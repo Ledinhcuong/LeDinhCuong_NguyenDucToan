@@ -10,14 +10,15 @@ if (isset($_SESSION['username']) == false)
 	header("location: login.php");
 }
 
-$qc = new quangcao();
+$sp = new sanpham();
+$keyword = $_GET['key'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Administrator</title>
+	<title>Search</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="public/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -51,13 +52,10 @@ $qc = new quangcao();
 					
 					<ul class="nav navbar-nav navbar-right">
 
-
 						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Wellcome: <?php echo $_SESSION['username']; ?></a></li>
 						<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>  Settings</a></li>
 						<li><a href="#"> <i class="fa fa-commenting" aria-hidden="true"></i>  Message</a></li>
 						<li><a href="logout.php?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-						
-
 
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -71,68 +69,30 @@ $qc = new quangcao();
 	<div class="content">
 		<div class="container">
 
-			<!-- other table -->
-			<div class="other-table">
-				<div class="row">
-					<div class="col-md-2" style="font-size: 20px; color: #2196F3;">
-						Các bảng:
-					</div>
-					<div class="col-md-2">
-						<a href="index.php">
-							<span class="btn-table">
-								Sản phẩm
-							</span>
-						</a>
-
-					</div>
-
-					<div class="col-md-2">
-						<a href="#">
-							<span class="btn-table">
-								Quảng cáo
-							</span>
-						</a>
-					</div>
-
-					<div class="col-md-2">
-						<a href="tableloai.php">
-							<span class="btn-table">
-								Loại
-							</span>
-						</a>
-					</div>
-
-					<div class="col-md-2">
-						<a href="tabletrang.php">
-							<span class="btn-table">
-								Dữ liệu trang
-							</span>
-						</a>
-					</div>
-
-				</div>
-
-			</div>
+			
 
 			<!-- list product -->
 			<div class="list-table">
-				<div class="name-list">Bảng Quảng Cáo</div>
+				<div class="name-list">Kết quả tìm kiếm</div>
 				<div class="add-product">
-					<a href="formaddqc.php" style="font-size: 30px; margin-bottom: 10px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+					<a href="formaddproduct.php" style="font-size: 30px; margin-bottom: 10px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
 				</div>
 				<div class="table">
 					<div class="title">
 						<div class="row">
-							<div class="col-md-2 b-title">Mã loại</div>
+							<div class="col-md-1 b-title">Mã loại</div>
 							<div class="col-md-2 b-title">Mã sản phẩm</div>
-							<div class="col-md-2 b-title">Mã QC</div>
-							<div class="col-md-4 b-title">Nội dung quảng cáo</div>
+							<div class="col-md-2 b-title">Tên sản phẩm</div>
+							<div class="col-md-2 b-title">Giá</div>
+							<div class="col-md-1 b-title">Hãng</div>
+							<div class="col-md-2 b-title">Hệ Điều Hành</div>
 							<div class="col-md-2 b-title">Thao tác</div>
 
 						</div>
 					</div>
 					<?php
-					$total_rows= $qc->coutAllQC();
+					echo $keyword;
+					$total_rows= $sp->tinhSoKetQua($keyword);
 					$per_page= 30;
 
 					if (isset($_GET['page'])){
@@ -140,19 +100,21 @@ $qc = new quangcao();
 					}else{
 						$page=1;
 					}
-					$quangcao = $qc->tatCaQuangCao($page,$per_page);
-					foreach ($quangcao as $key) {
+					$product = $sp->timSanPham($keyword, $page, $per_page);
+					foreach ($product as $key) {
 						?>
 						<div class="row">
-							<div class="col-md-2 s-title"><?php echo $key['MaLoai']?></div>
+							<div class="col-md-1 s-title"><?php echo $key['MaLoai']?></div>
 							<div class="col-md-2 s-title"><?php echo $key['MaSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['IDQC']?></div>
-							<div class="col-md-4 s-title"><?php echo $key['NoiDungQC']?></div>
+							<div class="col-md-2 s-title"><?php echo $key['TenSP']?></div>
+							<div class="col-md-2 s-title"><?php echo $key['Gia']?> Đ</div>
+							<div class="col-md-1 s-title"><?php echo $key['Gia']?></div>
+							<div class="col-md-2 s-title"><?php echo $key['HeDieuHanh']?></div>
 							<div class="col-md-2 " style="padding-top: 20px;">
 
 								<button class="chitiet">Chi Tiết</button>
-								<a href="formsuaquangcao.php?IDQC= <?php echo $key['IDQC'];?>"><button>Sửa</button></a>
-								<a href="xoaquangcao.php?IDQC= <?php echo $key['IDQC'];?>"><button>Xóa</button></a>
+								<a href="editproduct.php?MaSP= <?php echo $key['MaSP'];?>"><button>Sửa</button></a>
+								<a href="xoasanpham.php?MaSP= <?php echo $key['MaSP'];?>"><button>Xóa</button></a>
 
 							</div>
 
@@ -160,11 +122,32 @@ $qc = new quangcao();
 
 						<div class="table-hidden">
 							<div class="row">
-								<div class="col-md-12">
-									<div class="image-product" >
+								<div class="col-md-4">
+									<div class="image-product" style="padding: 50px;">
 										<img src="../public/images/<?php echo $key['Anh']?>" alt="<?php echo $key['Anh']?>" class="img-responsive">
 									</div>
 
+								</div>
+								<div class="col-md-8 more-info">
+									<ul>
+										<li>Hệ điều hành  : <?php echo $key['ManHinh'] ?> </li>
+										<li>Cam sau : <?php echo $key['CamSau']?></li>
+										<li>Cam trước : <?php echo $key['CamTruoc'] ?></li>
+										<li>Cpu : <?php echo $key['CPU'] ?></li>
+										<li>Ram : <?php echo $key['Ram']?> GB</li>
+										<li>Bộ nhớ  : <?php echo $key['BoNho']?></li>
+										<li>Chất liệu : <?php echo $key['ChatLieu']?></li>
+										<li>Trọng lượng : <?php echo $key['TrongLuong'] ?>g</li>
+										<li>Dung lượng pin: <?php echo $key['DungLuongPin']?></li>
+									</ul>
+								</div>
+								<div class="col-md-12">
+									<div class="tdacdiem">
+										Đặc Điểm:
+									</div>
+									<span>
+										<?php echo $key['DacDiem'] ?>
+									</span>
 								</div>
 
 							</div>
@@ -187,7 +170,7 @@ $qc = new quangcao();
 					<div class="all-page">
 						<tr>
 							<?php
-								echo $qc->create_links($base_url, $total_rows, $page, $per_page);
+								echo $sp->create_links($base_url, $total_rows, $page, $per_page);
 							?>
 						</tr>
 

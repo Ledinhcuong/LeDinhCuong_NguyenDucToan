@@ -4,6 +4,7 @@
 class loai extends db
 {
 
+	// Sua thong tin mot loai
 	public function suaLoai($maLoai ,$tenLoai)
 	{
 		
@@ -15,6 +16,7 @@ class loai extends db
 
 	}
 
+	// Lay thong tin mot loai
 	public function chiTietLoai($MaLoai)
 	{
 		$sql = "SELECT * FROM Loai WHERE MaLoai = $MaLoai";
@@ -28,6 +30,7 @@ class loai extends db
 		return $loai;
 	}
 
+	// Xoa mot loai khoi co so du lieu
 	public function deleteLoai($MaLoai)
 	{
 		$sql="DELETE FROM Loai  WHERE MaLoai= $MaLoai";
@@ -45,6 +48,7 @@ class loai extends db
 		
 	}
 
+	// Lay tat ca loai tu co so du lieu
 	public function tatCaLoai($page, $per_page) {
 
 		$fist_link = ($page-1)* $per_page;

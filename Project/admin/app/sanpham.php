@@ -2,9 +2,42 @@
 
 class sanpham extends db {
 
+	// Search
+	public function timSanPham($key, $page, $per_page) {
 
+			// Tinh so thu tu trang bat dau hien thi
+		$fist_link = ($page-1)* $per_page;
+			//2. viet cau truy van
+		$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%'";
+
+
+			//3.Thuc thi cau truy van
+		$result = self::$conn->query($sql);
+
+			//4.Chuyen object thanh mang
+		$arr = array();
+		while($row = $result->fetch_assoc()){
+			$arr[] = $row;
+		}
+		return $arr;
+		
+	}
+
+	// Tinh ket tim theo ten
+	public function tinhSoKetQua($key){
+		//viet cau truy van
+		
+		$sql= "SELECT * FROM SanPham WHERE TenSP LIKE '%".$key."%'";
+		
+		//thuc thi 
+		$result = self::$conn->query($sql);
+		//chuyen object thanh mang
+		return $result->num_rows;
+	}
+
+	// Sua thong tin san pham
 	public function suaSanPham($newImg, $maLoai, $tenSP, $gia, $hang, $manHinh, $hdh, $camSau, $camTruoc, $cpu,
-	 $ram, $boNho, $chatLieu, $trongLuong, $pin, $dacDiem, $maSP)
+		$ram, $boNho, $chatLieu, $trongLuong, $pin, $dacDiem, $maSP)
 	{
 		if ($newImg == '')
 		{
@@ -23,6 +56,7 @@ class sanpham extends db {
 
 	}
 
+	// Lay tri tiet mot san pham
 	public function chiTietSanPham($id)
 	{
 		$sql = "SELECT * FROM SanPham WHERE MaSP = $id";
@@ -36,12 +70,14 @@ class sanpham extends db {
 		return $sanPham;
 	}
 	
+	// Xoa mot san pham
 	public function deleteProduct($maSP)
 	{
 		$sql="DELETE FROM SanPham  WHERE MaSP= $maSP";
 		$result = self::$conn->query($sql);
 	}
 
+	// Them san pham vao co so du lieu
 	public function addProduct($maLoai, $tenSP, $gia, $hang, $manHinh, $hdh, $camSau, $camTruoc, $cpu, $ram, $boNho, $chatLieu, $trongLuong, $pin, $dacDiem, $anh)
 	{
 		$sql = "INSERT INTO SanPham (MaLoai, TenSP, Gia, Hang, ManHinh, HeDieuHanh, CamSau, CamTruoc, CPU, Ram, BoNho, ChatLieu, TrongLuong, DungLuongPin, DacDiem, Anh ) VALUES ($maLoai, '$tenSP', $gia, '$hang', '$manHinh', '$hdh', '$camSau', '$camTruoc', '$cpu', $ram, $boNho, '$chatLieu', $trongLuong, $pin, '$dacDiem', '$anh')";
@@ -53,6 +89,7 @@ class sanpham extends db {
 		return $result;
 	}
 
+	// Lay thong tin tat ca san pham
 	public function tatCaSanPham($page, $per_page) {
 
 		$fist_link = ($page-1)* $per_page;
@@ -84,6 +121,7 @@ class sanpham extends db {
 		//chuyen object thanh mang
 		return $result->num_rows;
 	}
+
 
 	// Phuong thuc tao link
 	public function create_links ($base_url, $total_rows, $page, $per_page)

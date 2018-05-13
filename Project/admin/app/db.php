@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "config.php";
 class db{
 
 	//tao bien ket noi
@@ -7,20 +8,11 @@ class db{
 
 	//1.Ket noi trong ham construct
 	public function __construct(){
-		self::$conn = new mysqli("localhost","root","mysql","QuanLy");
+		self::$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 		//hien thi tieng viet
 		self::$conn->set_charset('utf8');
 		
 
-	}
-
-	public function getData($obj)
-	{
-		$arr = array();
-		while($row = $obj->fetch_assoc()){
-			$arr[] = $row;
-		}
-		return $arr;
 	}
 
 

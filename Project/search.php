@@ -1,7 +1,6 @@
 <?php 
-require "public/app/db.php";
-require "public/app/config.php";
-
+require "app/config.php";
+require "app/db.php";
 
 if (isset($_GET['loc']))
 {

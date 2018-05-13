@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2018 at 09:11 PM
+-- Generation Time: May 13, 2018 at 03:55 PM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -19,6 +19,112 @@ SET time_zone = "+00:00";
 --
 -- Database: `QuanLy`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Account`
+--
+
+CREATE TABLE IF NOT EXISTS `Account` (
+  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `idAcount` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Account`
+--
+
+INSERT INTO `Account` (`Username`, `Password`, `idAcount`) VALUES
+('Cuong', 'e10adc3949ba59abbe56e057f20f883e', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `DuLieuTrang`
+--
+
+CREATE TABLE IF NOT EXISTS `DuLieuTrang` (
+  `MaLoai` int(11) NOT NULL,
+  `TDL` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TDL2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L1` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L3` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L4` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L5` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L6` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L7` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `L8` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TieuDe` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `NDGT` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TieuDe2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Li1` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Li2` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Li3` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Li4` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `DuLieuTrang`
+--
+
+INSERT INTO `DuLieuTrang` (`MaLoai`, `TDL`, `TDL2`, `L1`, `L2`, `L3`, `L4`, `L5`, `L6`, `L7`, `L8`, `TieuDe`, `NDGT`, `TieuDe2`, `Li1`, `Li2`, `Li3`, `Li4`) VALUES
+(1, 'Search: ', 'Giá:', 'Apple', 'Samsung', 'Sony', 'Tất cả', 'Dưới 3 triệu', 'Từ 4 đến 10 triệu', 'Trên 10 triệu', 'Tất cả', 'Cuộc sống trở nên tiện nghi hơn với điện thoại di động', 'Xuất hiện từ năm 1973, điện thoại di động chính thức được ra mắt trên toàn thế giới và được xem là một bước tiến vĩ đại trong lịch sử công nghệ viễn thông. Ngày nay, những chiếc điện thoại mà chúng ta sử dụng đều có thiết kế nhỏ gọn, khác xa với kiểu dáng cồng kềnh và ít chức năng của những mẫu thuộc thời kỳ sơ khai. Với nhịp sống bận rộn, thiết bị này dần trở thành vật bất ly thân của hầu hết mọi người, bởi vì ngoài chức năng nghe, gọi, nhắn tin, chúng còn là chiếc máy vi tính thu nhỏ trong túi của chúng ta. Những lúc cần thư giãn, điện thoại di động, đặc biệt là điện thoại thông minh sẽ trở thành một người bạn giải trí thú vị với đầy đủ các chức năng như chụp hình, nghe nhạc, xem phim, chơi game, lướt Facebook… Hơn nữa, kiểu dáng thời thượng, quý phái của chúng sẽ thể hiện đẳng cấp và phong cách thời trang của người chủ sở hữu. Sự bùng nổ nhanh chóng của điện thoại thông minh đã kéo theo sự cạnh tranh của nhiều nhà sản xuất . Vì thế, các công ty lớn ngoài việc sản xuất những dòng cao cấp, bên cạnh đó còn cho ra những sản phẩm tầm trung với giá cả hợp lý để mở rộng thị trường đang hái ra tiền này. Tại CellphoneS, bạn có thể tìm thấy cho mình nhiều dòng máy với nhiều tầm giá khác nhau cùng hàng ngàn ưu đãi hấp dẫn.', 'Tại sao chúng ta nên lựa chọn điện thoại thông minh?', 'Kết nối mọi người trở nên gần nhau hơn bất kể khoảng cách địa lý.', 'Công cụ làm việc hữu ích của những người bận rộn: xem tin tức, kiểm tra hộp thư, giao dịch ngân hàng, thanh toán trực tuyến, xem bản đồ, quản lý thời gian…', 'Nơi lưu giữ những khoảnh khắc đáng nhớ trong cuộc sống qua những bức ảnh, video hoặc giọng nói.', 'Giải toả căng thẳng sau những giờ làm việc mệt mỏi hoặc giờ giải lao bằng những ứng dụng game, xem phim hoặc nghe nhạc.'),
+(2, 'Search: ', 'Giá:', 'Apple', 'Samsung', 'Huawei', 'Tất cả', 'Dưới 3 triệu', 'Từ 4 đến 10 triệu', 'Trên 10 triệu', 'Tất cả', 'Máy tính bảng – Sự phát triển vượt bậc của ngành công nghệ', 'Máy tính bảng, còn được gọi là tablet, chỉ các thiết bị di động chạy hệ điều hành có kích thước màn hình lớn, từ 7 inch trở lên, thao tác cảm ứng để nhập liệu, có thể kết hợp thêm bàn phím và chuột. Trong hàng chục năm kể từ 1960, máy tính bảng đã được nghiên cứu và phát triển, đến đầu những năm 2000, Microsoft đã cho ra mắt các flagship đầu tiên nhưng không thành công mấy. Đầu năm 2010, Apple rò rỉ hình ảnh của một thiết bị chạy hệ điều hành giống iPhone nhưng có kích thước to đến 9.7 inch, đặt tên cho nó là iPad. Thiết bị được cho là lai giữa điện thoại di động và máy tính xách tay, vì sự phát triển của iPhone, iPod trong nhiều năm trước nên người ta biết đến iPad nhiều hơn. Đến đây người ta mới biết đến máy tính bảng. Sau thời điểm này, một loạt các máy tính bảng được ra đời, thành công nhất là Apple khi chiếm lĩnh gần hết thị trường với iPad qua các năm. Phablet là thiết bị lai giữa điện thoại và máy tính bảng, tính di động cao hơn, mức giá rẻ hơn, vì thế mà các nhà sản xuất cũng phải tung ra các sản phẩm máy tính bảng để cạnh tranh.', 'Tại sao nên mua máy tính bảng?', 'Nhẹ hơn, mỏng hơn laptop, mang theo dễ dàng hơn.', 'Giá tốt khi bạn đang cân nhắc giữa mua một chiếc máy tính bảng thay cho một laptop và một điện thoại chỉ hỗ trợ cho công việc cơ bản. Xu hướng máy tính bảng cũng đang hướng đến phân khúc rẻ hơn, đặc b', 'Công việc chuyên nghiệp, liên quan đến hình ảnh hay đồ họa thì iPad Pro sẽ là lựa chọn hợp lý vì được Apple cải cách cấu hình, chip ram xử lý và màn hình to hơn hẳn các dòng trước.', 'Giải toả căng thẳng sau những giờ làm việc mệt mỏi hoặc giờ giải lao bằng những ứng dụng game, xem phim hoặc nghe nhạc.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Loai`
+--
+
+CREATE TABLE IF NOT EXISTS `Loai` (
+  `MaLoai` int(11) NOT NULL,
+  `TenLoai` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Loai`
+--
+
+INSERT INTO `Loai` (`MaLoai`, `TenLoai`) VALUES
+(1, 'Phone'),
+(2, 'Tablet'),
+(3, 'Laptop'),
+(4, 'Accessory');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `QuangCao`
+--
+
+CREATE TABLE IF NOT EXISTS `QuangCao` (
+  `MaSP` int(11) NOT NULL,
+  `MaLoai` int(11) NOT NULL,
+  `Anh` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Moi` tinyint(1) NOT NULL,
+  `IDQC` int(11) NOT NULL,
+  `NoiDungQC` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `QuangCao`
+--
+
+INSERT INTO `QuangCao` (`MaSP`, `MaLoai`, `Anh`, `Moi`, `IDQC`, `NoiDungQC`) VALUES
+(19, 1, 'quangcao1.png', 1, 1, 'Quảng cáo oppo'),
+(35, 1, 'quangcao2.png', 1, 2, 'Huawei nova 3e'),
+(27, 1, 'quancaosmt.png', 1, 3, 'Quảng cáo máy tính bảng sam sung'),
+(23, 1, 'quangcaoipadpro.png', 1, 4, 'Quảng cáo ipad pro'),
+(7, 1, 'quangcaonote8.png', 1, 5, 'Quản cao galaxy note 8'),
+(36, 1, 'quangcaonokia6.jpg', 1, 6, 'Quang cao nokia 6'),
+(37, 1, 'quangcaooppoa71.png', 1, 7, 'Quảng cáo oppo a71'),
+(38, 1, 'QCHuawei-Y7-Pro.png', 1, 8, 'Quảng cáo huawei y7 pro'),
+(4, 1, '05_05_2018_11.png', 1, 9, 'Quảng cáo galaxy s9'),
+(1, 1, '10_05_2018_19_16_17_Apple-Hotsale-595-100.png', 1, 10, 'Quảng cáo iphone x');
 
 -- --------------------------------------------------------
 
@@ -44,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `SanPham` (
   `DungLuongPin` int(11) NOT NULL,
   `Anh` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `DacDiem` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `SanPham`
@@ -97,6 +203,24 @@ INSERT INTO `SanPham` (`MaLoai`, `MaSP`, `TenSP`, `Gia`, `Hang`, `ManHinh`, `HeD
 --
 
 --
+-- Indexes for table `Account`
+--
+ALTER TABLE `Account`
+  ADD PRIMARY KEY (`idAcount`);
+
+--
+-- Indexes for table `Loai`
+--
+ALTER TABLE `Loai`
+  ADD PRIMARY KEY (`MaLoai`);
+
+--
+-- Indexes for table `QuangCao`
+--
+ALTER TABLE `QuangCao`
+  ADD PRIMARY KEY (`IDQC`);
+
+--
 -- Indexes for table `SanPham`
 --
 ALTER TABLE `SanPham`
@@ -107,10 +231,25 @@ ALTER TABLE `SanPham`
 --
 
 --
+-- AUTO_INCREMENT for table `Account`
+--
+ALTER TABLE `Account`
+  MODIFY `idAcount` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `Loai`
+--
+ALTER TABLE `Loai`
+  MODIFY `MaLoai` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `QuangCao`
+--
+ALTER TABLE `QuangCao`
+  MODIFY `IDQC` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
 -- AUTO_INCREMENT for table `SanPham`
 --
 ALTER TABLE `SanPham`
-  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require "public/app/config.php";
-require "public/app/db.php";
+require "app/config.php";
+require "app/db.php";
 $db = new db();
 
 ?>

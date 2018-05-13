@@ -4,6 +4,7 @@
 class quangcao extends db
 {
 
+	// Sua mot quang cao tren co so du lieu
 	public function suaQuangCao($maQC ,$maSP, $maLoai, $moi, $noiDungQC, $anh)
 	{
 		if ($anh == '')
@@ -19,6 +20,7 @@ class quangcao extends db
 
 	}
 
+	// Lay thong tin mot quang cao
 	public function chiTietQC($IDQC)
 	{
 		$sql = "SELECT * FROM QuangCao WHERE IDQC = $IDQC";
@@ -32,6 +34,7 @@ class quangcao extends db
 		return $quangcao;
 	}
 
+	// Phuong thuc xoa quang cao
 	public function deleteQC($IDQC)
 	{
 		$sql="DELETE FROM QuangCao  WHERE IDQC= $IDQC";
@@ -49,6 +52,7 @@ class quangcao extends db
 		
 	}
 
+	// Lay thong tin tat ca quang cao
 	public function tatCaQuangCao($page, $per_page) {
 
 		$fist_link = ($page-1)* $per_page;

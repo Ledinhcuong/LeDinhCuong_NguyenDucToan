@@ -1,6 +1,5 @@
 <?php
-require "public/app/db.php";
-require "public/app/config.php";
+require "app/db.php";
 $db = new db();
 if (isset($_GET['maLoai']))
 {

@@ -34,7 +34,7 @@ if ($_POST['username'] && $_POST['password'])
 	<link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="public/css/mystyles.css">
 	<script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="public/js/sitecripts.js"></script>
+	<script type="text/javascript" src="public/js/myscripts.js"></script>
 </head>
 <body>	
 	<!--header-->
