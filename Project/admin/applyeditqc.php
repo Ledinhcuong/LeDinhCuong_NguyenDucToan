@@ -64,7 +64,8 @@ else
 	}
 	else
 	{
-		header("location: javascript:goback()");
+		 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+   		 echo "<a href='$url'>Dữ liệu đã tồn tại vui lòng nhập lại</a>"; 
 	}
 
 }

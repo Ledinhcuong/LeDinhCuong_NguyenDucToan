@@ -1,5 +1,4 @@
 <?php 
-require "app/config.php";
 require "app/db.php";
 
 if (isset($_GET['loc']))
@@ -163,7 +162,7 @@ $db = new db();
 									 <a href="chitiet.php?id=<?php echo $row['MaSP']?>"><?php echo $row['TenSP'] ?></a>
 								</div>
 								<div class="price">
-									<?php echo $row['Gia']?> đ
+									<?php echo number_format($row['Gia'])?> đ
 								</div>
 							</div>
 

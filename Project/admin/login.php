@@ -77,7 +77,7 @@ if ($_POST['username'] && $_POST['password'])
 	<div class="content">
 		<div class="login">
 			<div class="container">
-				<form action="" method="POST" class="form-horizontal" role="form">
+				<form action="" method="POST" class="form-horizontal" role="form" onsubmit="validateLogin();">
 					<div class="form-group">
 						<legend style="color: #009688">Đăng nhập vào tài khoản của bạn</legend>
 

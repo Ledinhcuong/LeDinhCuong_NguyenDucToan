@@ -1,12 +1,9 @@
 
 <?php
-
-require "app/config.php";
 require "app/db.php";
 $id = $_GET['id'];
 $db = new db();
 $sanPham = $db->chiTietSanPham($id);
-
 
 ?>
 
@@ -223,7 +220,7 @@ $sanPham = $db->chiTietSanPham($id);
 
 					<div class="buy-product">
 						<div class="price">
-							<?php echo $sanPham['Gia']?> đ
+							<?php echo number_format($sanPham['Gia'])?> đ
 						</div>
 						<div class="row">
 							

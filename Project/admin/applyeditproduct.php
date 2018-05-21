@@ -27,6 +27,7 @@ if (strlen($file['name']) == 0)
 {
 	$sp->suaSanPham($file['name'], $maLoai, $tenSP, $gia, $hang, $manHinh, $hdh, $camSau, $camTruoc, $cpu,
 	 $ram, $boNho, $chatLieu, $trongLuong, $pin, $dacDiem, $maSP);
+	header("location: index.php");
 	
 }
 else
@@ -76,7 +77,8 @@ else
 	}
 	else
 	{
-		header("location: javascript:goback()");
+		 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    	echo "<a href='$url'>Dữ liệu đã tồn tại vui lòng nhập lại</a>"; 
 	}
 
 }

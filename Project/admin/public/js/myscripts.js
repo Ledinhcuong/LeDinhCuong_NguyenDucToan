@@ -685,3 +685,47 @@ function validateLi4() {
 		return true;
 	}
 }
+
+
+
+
+
+function validateLogin() {
+			if (validateUsername() & validatePassword()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function validateUsername() {
+			var field = $('#username').val();
+			var filter = /^\w+$/;
+
+			if (filter.test(field) == false) {
+				$('#username').parent().parent().addClass('has-error');
+				$('#username').next().html('Sai ID');
+				return false;
+			} else {
+				$('#username').parent().parent().removeClass('has-error');
+				$('#username').parent().parent().addClass('has-success');
+				$('#username').next().html('');
+				return true;
+			}
+		}
+
+		function validatePassword() {
+			var field = $('#password').val();
+			var filter = /^\w{6,}$/;
+
+			if (filter.test(field) == false) {
+				$('#password').parent().parent().addClass('has-error');
+				$('#password').next().html('Sai password');
+				return false;
+			} else {
+				$('#password').parent().parent().removeClass('has-error');
+				$('#password').parent().parent().addClass('has-success');
+				$('#password').next().html('');
+				return true;
+			}
+		}

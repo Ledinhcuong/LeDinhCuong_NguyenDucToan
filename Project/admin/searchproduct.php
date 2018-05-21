@@ -107,8 +107,8 @@ $keyword = $_GET['key'];
 							<div class="col-md-1 s-title"><?php echo $key['MaLoai']?></div>
 							<div class="col-md-2 s-title"><?php echo $key['MaSP']?></div>
 							<div class="col-md-2 s-title"><?php echo $key['TenSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['Gia']?> Đ</div>
-							<div class="col-md-1 s-title"><?php echo $key['Gia']?></div>
+							<div class="col-md-2 s-title"><?php echo number_format($key['Gia'])?> Đ</div>
+							<div class="col-md-1 s-title"><?php echo $key['Hang']?></div>
 							<div class="col-md-2 s-title"><?php echo $key['HeDieuHanh']?></div>
 							<div class="col-md-2 " style="padding-top: 20px;">
 

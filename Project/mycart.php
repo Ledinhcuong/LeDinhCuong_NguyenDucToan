@@ -1,6 +1,5 @@
 <?php
 session_start();
-require "app/config.php";
 require "app/db.php";
 $db = new db();
 
@@ -177,7 +176,7 @@ $db = new db();
 												<?php echo $sanPham['Hang'] ?>
 											</div>
 											<div class="price-pr" style="font-size: 20px; color: red; margin-top: 10px">
-												<?php echo $sanPham['Gia'] ?> VNĐ
+												<?php echo number_format($sanPham['Gia']) ?> VNĐ
 											</div>
 											
 										</div>

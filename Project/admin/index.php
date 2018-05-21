@@ -156,13 +156,13 @@ $sp = new sanpham();
 					foreach ($product as $key) {
 						?>
 						<div class="row">
-							<div class="col-md-1 s-title"><?php echo $key['MaLoai']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['MaSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['TenSP']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['Gia']?> Đ</div>
-							<div class="col-md-1 s-title"><?php echo $key['Gia']?></div>
-							<div class="col-md-2 s-title"><?php echo $key['HeDieuHanh']?></div>
-							<div class="col-md-2 " style="padding-top: 20px;">
+							<div class="col-md-1 col-xs-1 s-title"><?php echo $key['MaLoai']?></div>
+							<div class="col-md-2 col-xs-2 s-title"><?php echo $key['MaSP']?></div>
+							<div class="col-md-2 col-xs-2 s-title"><?php echo $key['TenSP']?></div>
+							<div class="col-md-2 col-xs-2 s-title"><?php echo number_format($key['Gia'])?> Đ</div>
+							<div class="col-md-1 col-xs-1 s-title"><?php echo $key['Hang']?></div>
+							<div class="col-md-2 col-xs-2 s-title"><?php echo $key['HeDieuHanh']?></div>
+							<div class="col-md-2 col-xs-2 " style="padding-top: 20px;">
 
 								<button class="chitiet">Chi Tiết</button>
 								<a href="editproduct.php?MaSP= <?php echo $key['MaSP'];?>"><button>Sửa</button></a>
@@ -174,13 +174,13 @@ $sp = new sanpham();
 
 						<div class="table-hidden">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-4 col-xs-4">
 									<div class="image-product" style="padding: 50px;">
 										<img src="../public/images/<?php echo $key['Anh']?>" alt="<?php echo $key['Anh']?>" class="img-responsive">
 									</div>
 
 								</div>
-								<div class="col-md-8 more-info">
+								<div class="col-md-8 col-xs-8 more-info">
 									<ul>
 										<li>Hệ điều hành  : <?php echo $key['ManHinh'] ?> </li>
 										<li>Cam sau : <?php echo $key['CamSau']?></li>
@@ -193,7 +193,7 @@ $sp = new sanpham();
 										<li>Dung lượng pin: <?php echo $key['DungLuongPin']?></li>
 									</ul>
 								</div>
-								<div class="col-md-12">
+								<div class="col-md-12 col-xs-12">
 									<div class="tdacdiem">
 										Đặc Điểm:
 									</div>
